@@ -60,3 +60,35 @@
 8. **b) Ich sehe den Hund** (Accusative case: "den Hund.")
 9. **b) Mir ist kalt** (Correct German phrasing for feeling cold.)
 10. **b) einkaufen** (A separable verb: "Ich kaufe ein.")
+
+---
+
+The objective of this project is to develop a web-based Multiple Choice (MC) system that presents
+questions one by one, allows players to select answers, and records their responses. The system
+should also display points earned by the player after completing a certain number of questions and
+provide feedback on correct/incorrect answers. Additionally, it should display data visualization
+related to attempts, correct/wrong answers, and other key metrics.
+
+Functional Requirements
+1. MC Question Display: The system should display questions one by one in the same HTML page.
+2. Answer Selection: Players should be able to click and select their answers for each question.
+3. Answer Recording: The system should record the player's answer for each question attempted.
+4. Point Tracking: After completing a certain number of questions, the final page should display the
+player's points earned.
+5. Correct/Incorrect Feedback: The system should provide feedback on correct/incorrect answers
+for each question attempted.
+6. Attempts Submission: The player's attempts should be submitted to a backend using AJAX.
+7. Data Visualization: The system should display data visualization related to:
+Total attempts
+Attempts per day/week/month/year
+Correct answers
+Wrong answers
+8. Theme Graphics and Animation: The system should be designed to bring up a particular theme,
+complete with graphics and animation using GSAP.
+Requirements for Development
+1. HTML/CSS/JS: Use HTML, CSS, and JavaScript to develop the system.
+2. AJAX: Use AJAX to submit player attempts to a backend for real-time updates.
+3. Backend: Ensure the backend is designed to handle and store data
+4. Data Visualization: Use a library or framework (e.g., D3.js, amCharts) to create data
+visualizations.
+5. GSAP: Use GSAP for animations and graphics.
