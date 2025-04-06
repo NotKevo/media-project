@@ -1,11 +1,46 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title><%= title %>: <%= subtitle %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <header>
+      <progress max="10" value="0" id="progressBar"></progress>
+      <span data-icon="⏱️">15</span>
+      <span data-icon="🌟">988</span>
+    </header>
+    <main>
+      <form id="quizForm">
+        <h1><%= title %></h1>
+        <h3><%= subtitle %></h3>
+        <fieldset>
+          <legend>questions here</legend>
+          <label for="answer1">
+            answer1
+            <input type="radio" name="answer" value="option1" id="answer1" />
+          </label>
+        </fieldset>
+      </form>
+    </main>
+    <aside>
+      <h2>Performance</h2>
+      <section>Your score compare to others</section>
+      <section>Your mistakes compare to others</section>
+      <section>Your time compare to others</section>
+      <section>Your accuracy compare to others</section>
+    </aside>
+    <footer>
+      <button type="submit">Continue</button>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
