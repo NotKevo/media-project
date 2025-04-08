@@ -41,6 +41,8 @@
               required
             />
           </label>
+          <input type="hidden" name="score-<%= questionId %>" value="0" id="score-<%= questionId %>"/>
+          <input type="hidden" name="time-<%= questionId %>" value="0" id="time-<%= questionId %>" />
           <% } %>
         </fieldset>
         <% } %>
@@ -56,6 +58,46 @@
       <section>Your time compare to others, e.g. 300 seconds</section>
       <section>Your accuracy compare to others, e.g. 30% correct</section>
     </aside>
+    <script>
+      const progressBar = document.getElementById('progressBar');
+      const timeLeft = document.querySelector('[data-icon="⏱️"]');
+      const score = document.querySelector('[data-icon="🌟"]');
+      const quizForm = document.getElementById('quizForm');
+
+      let progress = 0;
+      let time = 15;
+      let currentScore = 988;
+      const maxQuestions = 10;
+
+      const updateProgress = () => {
+        progress += 1;
+        progressBar.value = progress;
+      };
+
+      const updateTime = () => {
+        time -= 1;
+        timeLeft.textContent = time;
+        if (time <= 0) {
+          quizForm.submit();
+        }
+      };
+
+      const updateScore = (points) => {
+        currentScore += points;
+        score.textContent = currentScore;
+      };
+
+      setInterval(updateTime, 1000);
+
+      quizForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        updateProgress();
+        updateScore(10);
+        if (progress < maxQuestions) {
+          quizForm.submit();
+        }
+      });
+    </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
       crossorigin="anonymous"
