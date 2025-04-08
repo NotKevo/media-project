@@ -1,0 +1,24 @@
+{
+  "userid": {
+    "questions": [
+      {
+        "question": "Which of the following is the correct definite article for 'Auto' (car)?",
+        "second_taken": 12.3,
+        "user_answer": "das",
+        "is_correct": true
+      },
+      {
+        "question": "How do you correctly conjugate 'sein' (to be) in the 'wir' form?",
+        "second_taken": 7.23,
+        "user_answer": "seid",
+        "is_correct": false
+      },
+      {
+        "question": "What is the correct translation of 'I have a book'?",
+        "second_taken": 2.3,
+        "user_answer": "Ich habe eine Buch",
+        "is_correct": false
+      }
+    ]
+  }
+}

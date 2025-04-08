@@ -8,36 +8,51 @@
       rel="stylesheet"
       crossorigin="anonymous"
     />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
   </head>
   <body>
-    <header>
-      <progress max="10" value="0" id="progressBar"></progress>
-      <span data-icon="⏱️">15</span>
-      <span data-icon="🌟">988</span>
-    </header>
-    <main>
-      <form id="quizForm">
-        <h1><%= title %></h1>
-        <h3><%= subtitle %></h3>
+    <form id="quizForm" action="/" method="post" target="_self">
+      <header>
+        <progress max="10" value="0" id="progressBar"></progress>
+        <span data-icon="⏱️">15</span>
+        <span data-icon="🌟">988</span>
+      </header>
+      <main>
         <fieldset>
-          <legend>questions here</legend>
-          <label for="answer1">
-            answer1
-            <input type="radio" name="answer" value="option1" id="answer1" />
-          </label>
+          <legend>
+            <h1><%= title %></h1>
+            <h3><%= subtitle %></h3>
+          </legend>
         </fieldset>
-      </form>
-    </main>
+        <% for (let i = 0; i < questions.length; i++) { %>
+        <fieldset>
+          <legend><%= questions[i].question %></legend>
+          <% for (let j = 0; j < questions[i].options.length; j++) { %>
+          <label for="answer<%= i %>-<%= j %>">
+            <%= questions[i].options[j] %>
+            <input
+              type="radio"
+              name="answer<%= i %>"
+              value="<%= questions[i].options[j] %>"
+              id="answer<%= i %>-<%= j %>"
+              required
+            />
+          </label>
+          <% } %>
+        </fieldset>
+        <% } %>
+      </main>
+      <footer>
+        <button type="submit">Continue</button>
+      </footer>
+    </form>
     <aside>
       <h2>Performance</h2>
-      <section>Your score compare to others</section>
-      <section>Your mistakes compare to others</section>
-      <section>Your time compare to others</section>
-      <section>Your accuracy compare to others</section>
+      <section>Your score compare to others, e.g. 988/1000</section>
+      <section>Your mistakes compare to others, e.g. 4/10</section>
+      <section>Your time compare to others, e.g. 300 seconds</section>
+      <section>Your accuracy compare to others, e.g. 30% correct</section>
     </aside>
-    <footer>
-      <button type="submit">Continue</button>
-    </footer>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
       crossorigin="anonymous"
