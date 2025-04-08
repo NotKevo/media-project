@@ -2,6 +2,18 @@
   "userid": {
     "questions": [
       {
+        "which_of_the_following_is_the_correct_definite_article_for_auto_car": "die",
+        "how_do_you_correctly_conjugate_sein_to_be_in_the_wir_form": "sind",
+        "what_is_the_correct_translation_of_i_have_a_book": "ich_habe_eine_buch",
+        "which_sentence_correctly_uses_the_dative_case": "ich_gebe_den_kind_einen_apfel",
+        "what_is_the_correct_translation_of_she_goes_to_the_school": "sie_geht_zur_schule",
+        "which_of_the_following_is_a_correct_plural_form": "das_kind_die_kinder",
+        "how_do_you_say_i_would_like_in_german": "ich_m_gen",
+        "which_sentence_correctly_uses_the_accusative_case": "ich_sehe_den_hund",
+        "what_is_the_correct_translation_of_i_am_cold": "mir_ist_kalt",
+        "which_of_the_following_is_a_separable_verb": "einkaufen"
+      },
+      {
         "question": "Which of the following is the correct definite article for 'Auto' (car)?",
         "second_taken": 12.3,
         "user_answer": "das",
