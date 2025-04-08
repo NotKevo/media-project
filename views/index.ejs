@@ -11,11 +11,11 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
   </head>
   <body>
-    <form id="quizForm" action="/" method="post" target="_self">
+    <form id="quizForm" action="/" method="post" target="_parent">
       <header>
         <progress max="10" value="2" id="progressBar"></progress>
-        <span data-icon="⏱️">15</span>
-        <span data-icon="🌟">988</span>
+        <span data-icon="⏱️" title="Time left">15</span>
+        <span data-icon="🌟" title="Score">988</span>
       </header>
       <main>
         <fieldset>
@@ -30,10 +30,11 @@
           <% for (let j = 0; j < questions[i].options.length; j++) { %>
             <% const questionId = questions[i].question.toLowerCase().replace(/[^_\w]+/g, '_').replace(/^_+|_+$/g, ''); %>
             <% const optionId = questions[i].options[j].toLowerCase().replace(/[^_\w]+/g, '_').replace(/^_+|_+$/g, ''); %>
-          <label for="<%= questions[i].question.replace(/ /g, '_') %>-<%= questions[i].options[j].replace(/ /g, '_') %>">
+          <label for="<%= questionId %>-<%= optionId %>">
             <%= questions[i].options[j] %>
             <input
               type="radio"
+              accesskey="<%= j + 1 %>"
               name="<%= questionId %>"
               value="<%= optionId %>"
               id="<%= questionId %>-<%= optionId %>"
