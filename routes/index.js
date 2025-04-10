@@ -6,7 +6,6 @@ router.get("/", function (req, res, next) {
   res.render("index", {
     title: "German Challenge",
     subtitle: "Time is Points!",
-    timeLimitSec: 15,
     scoreEachQuestion: 100,
     questions: [
       {
