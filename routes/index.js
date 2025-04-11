@@ -5,7 +5,7 @@ var router = express.Router();
 router.get("/", function (req, res, next) {
   res.render("index", {
     title: "German Challenge",
-    subtitle: "Time is Points!",
+    subtitle: "Welcome to the German Challenge!",
     scoreEachQuestion: 100,
     questions: [
       {
