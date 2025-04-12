@@ -50,17 +50,17 @@ const questions = [
   {
     question: "Which of the following is a correct plural form?",
     options: [
-      "das Kind → die Kindern",
-      "das Kind → die Kinder",
-      "das Kind → die Kindes",
+      "das Kind die Kindern",
+      "das Kind die Kinder",
+      "das Kind die Kindes",
     ],
-    answer: "das Kind → die Kinder",
+    answer: "das Kind die Kinder",
     explanation: "Correct plural form.",
   },
   {
     question: "How do you say 'I would like' in German?",
-    options: ["Ich möchte", "Ich mögen", "Ich mag"],
-    answer: "Ich möchte",
+    options: ["Ich mochte", "Ich mogen", "Ich mag"],
+    answer: "Ich mochte",
     explanation: "'I would like.'",
   },
   {
@@ -93,36 +93,27 @@ router.get("/", function (req, res, next) {
     title: "German Challenge",
     subtitle: "Welcome to the German Challenge!",
     scoreEachQuestion: 100,
-    questions: questions
+    questions: questions,
   });
 });
 
 router.post("/", function (req, res, next) {
-  try{
-    const answers = req.body;
-    console.log("ANSWERS:", answers);
-    let correctAnswerCount = 0;
+  const answers = req.body;
+  let correctAnswersCount = 0;
+  console.log("User Answers:", answers);
 
-    questions.forEach(question => {
-      const questionId = question.question;
-      console.log(`Checking question: ${questionId}, User answer: ${answers[questionId]}, Correct answer: ${question.answer}`);
-      if(answers[questionId] === question.answer){
-        correctAnswerCount++;
-      }
-    });
+  for(const question of questions) {
+    const questionKey = question.question.toLowerCase().replace(/[^_\w]+/g, '_').replace(/^_+|_+$/g, '');
+    const userAnswer = answers[questionKey];
 
-    const totalAttempts = 1;
-
-    res.json({
-      totalAttempts,
-      correctAnswers: correctAnswerCount,
-      wrongAnswers: Object.keys(answers).length - correctAnswerCount
-    });
-  } catch(error) {
-    console.error("ERROR:", error);
-    res.status(500).json({error: "Internal Server Error"});
+    if (userAnswer.replace(/_/g, ' ').toLowerCase() === question.answer.toLowerCase()) {
+      correctAnswersCount++;
+    }
   }
- // res.json(req.body);
+
+  console.log("User Answers:", correctAnswersCount);
+  res.json({answers, correctAnswersCount});
+ 
 });
 
 module.exports = router;
