@@ -187,6 +187,48 @@
       <section class="glassmorphism p-3">Correct answers</section>
       <section class="glassmorphism p-3">Wrong answers</section>
     </aside>
+////////////////////////////////////
+    <script>
+      async function getResults(){
+        const formData = new FormData(document.getElementById('quizForm'));
+        const answers = {};
+
+        formData.forEach((value, key) => {
+          answers[key] = value;
+        });
+
+        console.log("SEND ANS:", answers);
+
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(answers)
+        });
+        const json = await response.json();
+        updateData(json);
+        return json;
+      }
+
+      function updateData(data){
+        const dataQuiz = document.querySelector('aside.container.mt-5');
+        dataQuiz.innerHTML = `
+        <h2 class="mb-4">Performance</h2>
+        <section class="glassmorphism p-3">Total attempts: ${data.totalAttempts}</section>
+        <section class="glassmorphism p-3">Correct answers: ${data.correctAnswers}</section>
+        <section class="glassmorphism p-3">Wrong answers: ${data.wrongAnswers}</section>
+        <section class="glassmorphism p-3">Attempts per day/week/month/year</section> `;
+      }
+
+      document.getElementById("quizForm").addEventListener("submit", async (event) => {
+        event.preventDefault(); 
+        stopTimer();
+        enableAllFieldsets();
+        
+        const results = await getResults(); 
+        console.log(results); 
+    });
+    </script>
+////////////////////////////////////
     <script>
       let timerInterval;
       let startTime = 0;
