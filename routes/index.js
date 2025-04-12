@@ -50,17 +50,17 @@ const questions = [
   {
     question: "Which of the following is a correct plural form?",
     options: [
-      "das Kind die Kindern",
-      "das Kind die Kinder",
-      "das Kind die Kindes",
+      "das Kind -> die Kindern",
+      "das Kind -> die Kinder",
+      "das Kind -> die Kindes",
     ],
     answer: "das Kind die Kinder",
     explanation: "Correct plural form.",
   },
   {
     question: "How do you say 'I would like' in German?",
-    options: ["Ich mochte", "Ich mogen", "Ich mag"],
-    answer: "Ich mochte",
+    options: ["Ich möchte", "Ich mogen", "Ich mag"],
+    answer: "Ich möchte",
     explanation: "'I would like.'",
   },
   {
