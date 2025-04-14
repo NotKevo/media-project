@@ -18,11 +18,7 @@ const questions = [
   },
   {
     question: "What is the correct translation of 'I have a book'?",
-    options: [
-      "Ich habe ein Buch",
-      "Ich habe eine Buch",
-      "Ich habe einen Buch",
-    ],
+    options: ["Ich habe ein Buch", "Ich habe eine Buch", "Ich habe einen Buch"],
     answer: "Ich habe ein Buch",
     explanation: "Correct use of 'ein' with neuter noun.",
   },
@@ -37,8 +33,7 @@ const questions = [
     explanation: "Dative case: 'dem Kind.'",
   },
   {
-    question:
-      "What is the correct translation of 'She goes to the school'?",
+    question: "What is the correct translation of 'She goes to the school'?",
     options: [
       "Sie geht in die Schule",
       "Sie geht zur Schule",
@@ -65,11 +60,7 @@ const questions = [
   },
   {
     question: "Which sentence correctly uses the accusative case?",
-    options: [
-      "Ich sehe der Hund",
-      "Ich sehe den Hund",
-      "Ich sehe die Hund",
-    ],
+    options: ["Ich sehe der Hund", "Ich sehe den Hund", "Ich sehe die Hund"],
     answer: "Ich sehe den Hund",
     explanation: "Accusative case: 'den Hund.'",
   },
@@ -102,18 +93,23 @@ router.post("/", function (req, res, next) {
   let correctAnswersCount = 0;
   console.log("User Answers:", answers);
 
-  for(const question of questions) {
-    const questionKey = question.question.toLowerCase().replace(/[^_\w]+/g, '_').replace(/^_+|_+$/g, '');
+  for (const question of questions) {
+    const questionKey = question.question
+      .toLowerCase()
+      .replace(/[^_\w]+/g, "_")
+      .replace(/^_+|_+$/g, "");
     const userAnswer = answers[questionKey];
 
-    if (userAnswer.replace(/_/g, ' ').toLowerCase() === question.answer.toLowerCase()) {
+    if (
+      userAnswer.replace(/_/g, " ").toLowerCase() ===
+      question.answer.toLowerCase()
+    ) {
       correctAnswersCount++;
     }
   }
 
   console.log("User Answers:", correctAnswersCount);
-  res.json({answers, correctAnswersCount});
- 
+  res.json({ answers, correctAnswersCount });
 });
 
 module.exports = router;
